@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/style.css">
+  <title><%= email %>'s Emails</title>
+</head>
+<body>
+  <h2>Mails of <%= email %></h2>
+  <% mails.forEach(mail => { %>
+    <div class="mail-card">
+      <strong>From:</strong> <%= mail.from %><br>
+      <strong>Subject:</strong> <%= mail.subject %><br>
+      <p><%= mail.snippet %></p>
+      <a href="/mail/<%= email %>/<%= mail.id %>">View Full</a>
+    </div>
+  <% }) %>
+</body>
+</html>

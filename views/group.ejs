@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Join Group</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: Sans-Serif;
+      box-sizing: border-box;
+    }
+    
+    .iframe{
+
+    .picDiv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 20px;
+      position: absolute;
+    }
+
+    .picDiv img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .picDiv img:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .picDiv img {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <iframe class="iframe" src="/"></iframe>
+  <div class="picDiv">
+    <img src="images/pic1.jpg" alt="pic1">
+    <img src="images/pic2.jpg" alt="pic2">
+    <img src="images/pic3.jpg" alt="pic3">
+    <img src="images/pic4.jpg" alt="pic4">
+  </div>
+
+</body>
+</html>

