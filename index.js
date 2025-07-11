@@ -122,4 +122,13 @@ app.get('/mail/:email/:id', async (req, res) => {
   res.render('mail', { email, from, subject, body });
 });
 
+app.get('/privacy', (req, res) => {
+  res.render('privacy')
+})
+app.get('/terms', (req, res) => {
+  res.render('terms')
+})
+app.get('/home', (req, res) => {
+  res.render('myHome')
+})
 app.listen(3000, () => console.log('✅ Server running at http://localhost:3000'));
