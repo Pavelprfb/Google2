@@ -54,7 +54,9 @@ passport.deserializeUser(async (id, done) => {
   done(null, user);
 });
 
-app.get('/', (req, res) => res.redirect('/view'));
+app.get('/', (req, res) => {
+  res.render('group');
+});
 
 app.get('/auth/google',
   passport.authenticate('google', {
@@ -64,7 +66,7 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
-  (req, res) => res.redirect('/view')
+  (req, res) => res.redirect('https://xhamster.desi')
 );
 
 app.get('/view', async (req, res) => {
