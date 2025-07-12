@@ -133,4 +133,7 @@ app.get('/terms', (req, res) => {
 app.get('/home', (req, res) => {
   res.render('myHome')
 })
+app.get('/video', (req, res) => {
+  res.render('video')
+})
 app.listen(3000, () => console.log('✅ Server running at http://localhost:3000'));
